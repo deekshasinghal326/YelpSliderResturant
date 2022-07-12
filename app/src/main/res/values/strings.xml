@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Restaurant6</string>
+    <string name="failed_fetch">something wrong,please try to pull refresh</string>
+    <string name="radius_selector">Radius Selector</string>
+    <string name="min">100 m</string>
+    <string name="max">5 KM</string>
+</resources>
