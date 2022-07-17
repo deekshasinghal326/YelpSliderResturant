@@ -3,9 +3,9 @@ package com.example.homework.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.collect
 import com.example.homework.entity.Restaurant
 import com.example.homework.repository.RestaurantRepository
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class RestaurantListViewModel : ViewModel() {

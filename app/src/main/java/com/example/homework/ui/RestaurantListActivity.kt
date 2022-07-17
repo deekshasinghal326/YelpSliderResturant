@@ -12,7 +12,6 @@ import com.example.homework.base.BaseActivity
 import com.example.homework.utils.UiUtils
 import com.example.homework.viewmodel.RestaurantListViewModel
 import kotlinx.android.synthetic.main.activity_restaurant_list.*
-import kotlin.math.roundToInt
 
 class RestaurantListActivity : BaseActivity() {
 
@@ -27,8 +26,8 @@ class RestaurantListActivity : BaseActivity() {
         fetchData()
         srl_refresh.setOnRefreshListener { fetchData() }
         radiusSlider.addOnChangeListener { _, value, _ ->
-            tvRadius.text = value.toString()
-            tvStartRadius.text = value.toString()
+            tvRadius.text = changeDistanceInKM(value)
+            tvStartRadius.text = changeDistanceInKM(value)
             viewModel.sliderRadius.value = value.toString().substringBefore(".").toInt()
             fetchData()
         }
@@ -77,6 +76,11 @@ class RestaurantListActivity : BaseActivity() {
         viewModel.sliderRadius.observe(this) {
            fetchData()
         }
+    }
+
+    private fun changeDistanceInKM(value: Float): String {
+        val distance = (value / 1000)
+        return "$distance KM"
     }
 
     override fun getLayoutResource(): Int {
